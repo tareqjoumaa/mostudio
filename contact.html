@@ -18,6 +18,379 @@
 	
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/style.css">
+	
+	<style>
+		/* Custom Color Scheme */
+		:root {
+			--primary-color: #ff6b6b;
+			--secondary-color: #4ecdc4;
+			--gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+			--gradient-secondary: linear-gradient(45deg, #4ecdc4 0%, #ff6b6b 100%);
+			--text-dark: #2c3e50;
+			--text-light: #ffffff;
+			--shadow-light: 0 5px 20px rgba(255, 107, 107, 0.2);
+			--shadow-medium: 0 10px 30px rgba(78, 205, 196, 0.3);
+		}
+
+		/* Enhanced Animations */
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes slideInLeft {
+			from {
+				opacity: 0;
+				transform: translateX(-50px);
+			}
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes slideInRight {
+			from {
+				opacity: 0;
+				transform: translateX(50px);
+			}
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes pulse {
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(1.05);
+			}
+			100% {
+				transform: scale(1);
+			}
+		}
+
+		@keyframes gradientShift {
+			0% {
+				background-position: 0% 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+
+		/* Enhanced Contact Form */
+		.contact-wrap {
+			animation: slideInRight 0.8s ease-out;
+			background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+			border-radius: 20px;
+			box-shadow: var(--shadow-light);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.contact-wrap::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 4px;
+			background: var(--gradient-primary);
+			background-size: 200% 200%;
+			animation: gradientShift 3s ease infinite;
+		}
+
+		.contact-wrap .heading {
+			background: var(--gradient-primary);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			font-weight: 700;
+			font-size: 2.5rem;
+			margin-bottom: 2rem;
+			animation: fadeInUp 0.6s ease-out 0.2s both;
+		}
+
+		/* Form Group Labels Enhancement */
+		.form-group .label {
+			color: #2c3e50 !important;
+			font-weight: 600 !important;
+			margin-bottom: 8px !important;
+			display: block !important;
+			font-size: 14px !important;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+		}
+
+		/* Form Control Enhancements */
+		.form-group {
+			margin-bottom: 1.5rem;
+			animation: fadeInUp 0.6s ease-out both;
+		}
+
+		.form-group:nth-child(1) { animation-delay: 0.3s; }
+		.form-group:nth-child(2) { animation-delay: 0.4s; }
+		.form-group:nth-child(3) { animation-delay: 0.5s; }
+		.form-group:nth-child(4) { animation-delay: 0.6s; }
+		.form-group:nth-child(5) { animation-delay: 0.7s; }
+
+		.form-control {
+			border: 2px solid #e9ecef !important;
+			border-radius: 12px !important;
+			padding: 15px 20px !important;
+			font-size: 16px !important;
+			transition: all 0.3s ease !important;
+			background: #ffffff !important;
+			color: #2c3e50 !important;
+			width: 100% !important;
+			display: block !important;
+		}
+
+		.form-control:focus {
+			border-color: var(--primary-color) !important;
+			box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25) !important;
+			transform: translateY(-2px) !important;
+			background: #ffffff !important;
+			color: #2c3e50 !important;
+			outline: none !important;
+		}
+
+		.form-control::placeholder {
+			color: #6c757d !important;
+			opacity: 0.7 !important;
+		}
+
+		.label {
+			font-weight: 600;
+			color: var(--text-dark) !important;
+			margin-bottom: 8px;
+			display: block;
+			font-size: 14px;
+		}
+
+		/* Enhanced Submit Button */
+		.btn-primary {
+			background: var(--gradient-primary) !important;
+			border: none !important;
+			border-radius: 50px;
+			padding: 15px 40px;
+			font-weight: 600;
+			font-size: 16px;
+			letter-spacing: 0.5px;
+			transition: all 0.3s ease;
+			position: relative;
+			overflow: hidden;
+			color: var(--text-light) !important;
+		}
+
+		.btn-primary::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+			transition: left 0.5s;
+		}
+
+		.btn-primary:hover {
+			transform: translateY(-3px);
+			box-shadow: var(--shadow-medium);
+			background: var(--gradient-secondary) !important;
+		}
+
+		.btn-primary:focus {
+			box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.5) !important;
+			background: var(--gradient-primary) !important;
+		}
+
+		.btn-primary:hover::before {
+			left: 100%;
+		}
+
+		/* Enhanced Info Section */
+		.info-wrap {
+			background: var(--gradient-secondary) !important;
+			border-radius: 20px;
+			animation: slideInLeft 0.8s ease-out;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.info-wrap::before {
+			content: '';
+			position: absolute;
+			top: -50%;
+			right: -50%;
+			width: 100%;
+			height: 100%;
+			background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+			animation: pulse 4s ease-in-out infinite;
+		}
+
+		.info-wrap h3 {
+			color: var(--text-light);
+			font-weight: 700;
+			font-size: 2rem;
+			margin-bottom: 1rem;
+			animation: fadeInUp 0.6s ease-out 0.3s both;
+		}
+
+		.info-wrap p {
+			color: rgba(255, 255, 255, 0.9);
+			animation: fadeInUp 0.6s ease-out 0.4s both;
+		}
+
+		/* Enhanced Contact Info Items */
+		.dbox {
+			animation: fadeInUp 0.6s ease-out both;
+			margin-bottom: 2rem;
+			transition: transform 0.3s ease;
+		}
+
+		.dbox:nth-child(3) { animation-delay: 0.5s; }
+		.dbox:nth-child(4) { animation-delay: 0.6s; }
+		.dbox:nth-child(5) { animation-delay: 0.7s; }
+		.dbox:nth-child(6) { animation-delay: 0.8s; }
+
+		.dbox:hover {
+			transform: translateX(10px);
+		}
+
+		.dbox .icon {
+			width: 60px;
+			height: 60px;
+			background: rgba(255, 255, 255, 0.2);
+			border-radius: 50%;
+			backdrop-filter: blur(10px);
+			transition: all 0.3s ease;
+		}
+
+		.dbox:hover .icon {
+			background: rgba(255, 255, 255, 0.3);
+			transform: scale(1.1);
+		}
+
+		.dbox .icon span {
+			color: var(--text-light);
+			font-size: 20px;
+		}
+
+		.dbox .text p {
+			color: var(--text-light);
+			margin: 0;
+		}
+
+		.dbox .text span {
+			font-weight: 600;
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		.dbox .text a {
+			color: rgba(255, 255, 255, 0.9);
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.dbox .text a:hover {
+			color: var(--text-light);
+		}
+
+		/* Enhanced Map Section Replacement */
+		.contact-info-section {
+			animation: fadeInUp 0.8s ease-out 0.9s both;
+			margin-top: 30px;
+		}
+
+		/* Responsive Enhancements */
+		@media (max-width: 768px) {
+			.contact-wrap .heading {
+				font-size: 2rem;
+			}
+			
+			.info-wrap h3 {
+				font-size: 1.5rem;
+			}
+			
+			.dbox:hover {
+				transform: none;
+			}
+		}
+
+		/* Loading Animation Enhancement */
+		#ftco-loader {
+			background: var(--gradient-primary);
+		}
+
+		#ftco-loader .path {
+			stroke: var(--text-light);
+		}
+
+		/* Smooth Scroll */
+		html {
+			scroll-behavior: smooth;
+		}
+
+		/* Enhanced Responsive Design */
+		.container {
+			animation: fadeInUp 0.8s ease-out;
+		}
+
+		/* Enhanced Form Validation */
+		.form-control:valid {
+			border-color: var(--secondary-color) !important;
+		}
+
+		.form-control:invalid {
+			border-color: #e9ecef !important;
+		}
+
+		/* Enhanced Input Focus State */
+		.form-group.focused .label {
+			color: var(--primary-color) !important;
+			transform: translateY(-2px);
+		}
+
+		/* Floating Elements */
+		.floating {
+			animation: float 3s ease-in-out infinite;
+		}
+
+		@keyframes float {
+			0%, 100% {
+				transform: translateY(0px);
+			}
+			50% {
+				transform: translateY(-10px);
+			}
+		}
+
+		/* Additional Form Enhancements */
+		textarea.form-control {
+			resize: vertical !important;
+			min-height: 120px !important;
+		}
+
+		/* Focus ring enhancement */
+		.form-control:focus-visible {
+			outline: 2px solid var(--primary-color) !important;
+			outline-offset: 2px !important;
+		}
+	</style>
 </head>
 <body>
 
@@ -99,7 +472,7 @@
 									<h3>Let's get in touch</h3>
 									<p class="mb-4">We're open for any suggestion or just to have a chat</p>
 									<div class="dbox w-100 d-flex align-items-start">
-										<div class="icon d-flex align-items-center justify-content-center">
+										<div class="icon d-flex align-items-center justify-content-center floating">
 											<span class="fa fa-map-marker"></span>
 										</div>
 										<div class="text pl-3">
@@ -107,7 +480,7 @@
 										</div>
 									</div>
 									<div class="dbox w-100 d-flex align-items-center">
-										<div class="icon d-flex align-items-center justify-content-center">
+										<div class="icon d-flex align-items-center justify-content-center floating">
 											<span class="fa fa-phone"></span>
 										</div>
 										<div class="text pl-3">
@@ -115,7 +488,7 @@
 										</div>
 									</div>
 									<div class="dbox w-100 d-flex align-items-center">
-										<div class="icon d-flex align-items-center justify-content-center">
+										<div class="icon d-flex align-items-center justify-content-center floating">
 											<span class="fa fa-paper-plane"></span>
 										</div>
 										<div class="text pl-3">
@@ -123,7 +496,7 @@
 										</div>
 									</div>
 									<div class="dbox w-100 d-flex align-items-center">
-										<div class="icon d-flex align-items-center justify-content-center">
+										<div class="icon d-flex align-items-center justify-content-center floating">
 											<span class="fa fa-globe"></span>
 										</div>
 										<div class="text pl-3">
@@ -134,7 +507,12 @@
 							</div>
 						</div>
 						<div class="row d-flex no-gutters">
-							<div id="map" class="map"></div>
+							<div class="col-12">
+								<div class="contact-info-section p-4" style="background: var(--gradient-primary); border-radius: 20px; color: white; text-align: center; animation: fadeInUp 1s ease-out;">
+									<h4 style="margin-bottom: 20px; font-weight: 600;">Ready to Start Your Project?</h4>
+									<p style="margin: 0; opacity: 0.9;">We're excited to hear from you and discuss how we can bring your vision to life.</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -156,9 +534,65 @@
 		<script src="js/jquery.magnific-popup.min.js"></script>
 		<script src="js/jquery.animateNumber.min.js"></script>
 		<script src="js/scrollax.min.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-		<script src="js/google-map.js"></script>
+
 		<script src="js/main.js"></script>
+
+		<script>
+			// Enhanced form interactions
+			document.addEventListener('DOMContentLoaded', function() {
+				const form = document.getElementById('contactForm');
+				const inputs = form.querySelectorAll('.form-control');
+				
+				inputs.forEach(input => {
+					input.addEventListener('focus', function() {
+						this.parentElement.classList.add('focused');
+					});
+					
+					input.addEventListener('blur', function() {
+						if (this.value === '') {
+							this.parentElement.classList.remove('focused');
+						}
+					});
+				});
+
+				// Form submission animation
+				form.addEventListener('submit', function(e) {
+					e.preventDefault();
+					const submitBtn = form.querySelector('.btn-primary');
+					submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+					
+					setTimeout(() => {
+						submitBtn.innerHTML = '<i class="fa fa-check"></i> Message Sent!';
+						submitBtn.style.background = 'linear-gradient(135deg, #4ecdc4 0%, #45b7b8 100%)';
+						
+						setTimeout(() => {
+							submitBtn.innerHTML = 'Send Message';
+							submitBtn.style.background = '';
+							form.reset();
+						}, 3000);
+					}, 2000);
+				});
+
+				// Intersection Observer for animations
+				const observerOptions = {
+					threshold: 0.1,
+					rootMargin: '0px 0px -50px 0px'
+				};
+
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.style.opacity = '1';
+							entry.target.style.transform = 'translateY(0)';
+						}
+					});
+				}, observerOptions);
+
+				document.querySelectorAll('.form-group, .dbox').forEach(el => {
+					observer.observe(el);
+				});
+			});
+		</script>
 		
 	</body>
 	</html>

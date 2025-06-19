@@ -18,6 +18,96 @@
 	
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		/* تعديل بسيط لجعل المحتوى يأخذ العرض الكامل */
+		.about-full-width {
+			padding: 60px 40px;
+			padding-top: 120px; /* زيادة المسافة من الأعلى */
+		}
+		
+		.services-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			gap: 30px;
+			margin-top: 3rem;
+		}
+		
+		.service-item {
+			text-align: center;
+			padding: 20px;
+			border-radius: 8px;
+			background: #f8f9fa;
+			transition: all 0.3s ease;
+			position: relative;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		
+		.service-item::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(0, 0, 0, 0.7); /* خلفية داكنة بدلاً من البيضاء */
+			border-radius: 8px;
+			z-index: 1;
+		}
+		
+		.service-item > * {
+			position: relative;
+			z-index: 2;
+			color: white; /* جعل النص أبيض */
+		}
+		
+		.service-item:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		}
+		
+		.service-item:hover::before {
+			background: rgba(0, 0, 0, 0.6); /* تخفيف الظلمة عند الـ hover */
+		}
+		
+		.service-icon {
+			font-size: 2.5rem;
+			color: #F96D00;
+			margin-bottom: 1rem;
+		}
+		
+		.service-image {
+			width: 80px;
+			height: 80px;
+			border-radius: 8px;
+			object-fit: cover;
+			margin: 0 auto 1rem auto;
+			display: block;
+			border: 2px solid #F96D00;
+		}
+		
+		.stats-section {
+			margin-top: 4rem;
+			padding-top: 3rem;
+			border-top: 1px solid #eee;
+		}
+		
+		.stats-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			gap: 30px;
+			text-align: center;
+		}
+		
+		.stat-number {
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: #F96D00;
+			margin-bottom: 0.5rem;
+		}
+	</style>
 </head>
 <body>
 
@@ -49,63 +139,100 @@
 				<p class="pfooter"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
 					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-				</div>
-			</aside> <!-- END COLORLIB-ASIDE -->
-			<div id="colorlib-main">
-				<section class="ftco-about img ftco-section ftco-no-pt ftco-no-pb" id="about-section">
-					<div class="container-fluid px-0">
-						<div class="row d-flex">
-							<div class="col-md-6 d-flex">
-								<div class="img d-flex align-self-stretch align-items-center js-fullheight" style="background-image:url(images/about.jpg);">
+			</div>
+		</aside> <!-- END COLORLIB-ASIDE -->
+		
+		<div id="colorlib-main">
+			<section class="ftco-about ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+				<div class="container-fluid px-0">
+					<div class="row d-flex">
+						<div class="col-md-12 d-flex align-items-center">
+							<div class="about-full-width px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
+								<h2 class="mb-4" style="font-family: 'Abril Fatface', cursive; font-size: 2.8rem;">
+  									👋 Hi there! We’re <span style="color: #F96D00;">Cloudence</span> — your creative tech partner 🚀
+								</h2>
+								<p>We are a team of skilled developers and creative minds specialized in delivering innovative technology solutions. We help businesses grow and evolve through advanced technology and artificial intelligence.</p>
+								<p>Our vision is to be the trusted technology partner for our clients, providing them with the best software solutions that meet their needs and achieve their business goals with the highest standards of quality and professionalism.</p>
+								
+								<div class="services-grid">
+									<div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+										<div class="service-icon">
+											<i class="fa fa-code"></i>
+										</div>
+										<h4>Web Development</h4>
+										<p>Modern and interactive websites using the latest technologies</p>
+									</div>
+									
+									<div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+										<div class="service-icon">
+											<i class="fa fa-mobile"></i>
+										</div>
+										<h4>Mobile Applications</h4>
+										<p>High-quality iOS and Android applications with excellent performance</p>
+									</div>
+									
+									<div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+										<div class="service-icon">
+											<i class="fa fa-desktop"></i>
+										</div>
+										<h4>Desktop Applications</h4>
+										<p>Powerful desktop software for all operating systems</p>
+									</div>
+									
+									<div class="service-item" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80');">
+										<div class="service-icon">
+											<i class="fa fa-cogs"></i>
+										</div>
+										<h4>Artificial Intelligence</h4>
+										<p>Innovative smart solutions powered by AI technologies</p>
+									</div>
 								</div>
-							</div>
-							<div class="col-md-6 d-flex align-items-center">
-								<div class="text px-4 pt-5 pt-md-0 px-md-4 pr-md-5 ftco-animate">
-									<h2 class="mb-4">Hello! I'm<span>Jeffrey White</span> the CEO of a Mostudio Photography</h2>
-									<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-									<div class="team-wrap row mt-4">
-										<div class="col-md-4 team">
-											<div class="img" style="background-image: url(images/team-1.jpg);"></div>
-											<h3>John Doe</h3>
-											<span>Photographer</span>
+								
+								<div class="stats-section">
+									<div class="stats-grid">
+										<div class="stat-item">
+											<div class="stat-number">50+</div>
+											<p>Projects Completed</p>
 										</div>
-										<div class="col-md-4 team">
-											<div class="img" style="background-image: url(images/team-2.jpg);"></div>
-											<h3>John Flex</h3>
-											<span>Photographer</span>
+										<div class="stat-item">
+											<div class="stat-number">25+</div>
+											<p>Happy Clients</p>
 										</div>
-										<div class="col-md-4 team">
-											<div class="img" style="background-image: url(images/team-3.jpg);"></div>
-											<h3>John Flex</h3>
-											<span>Photographer</span>
+										<div class="stat-item">
+											<div class="stat-number">3+</div>
+											<p>Years Experience</p>
+										</div>
+										<div class="stat-item">
+											<div class="stat-number">24/7</div>
+											<p>Support</p>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</section>
-			</div><!-- END COLORLIB-MAIN -->
-		</div><!-- END COLORLIB-PAGE -->
+				</div>
+			</section>
+		</div><!-- END COLORLIB-MAIN -->
+	</div><!-- END COLORLIB-PAGE -->
 
-		<!-- loader -->
-		<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery-migrate-3.0.1.min.js"></script>
-		<script src="js/popper.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.easing.1.3.js"></script>
-		<script src="js/jquery.waypoints.min.js"></script>
-		<script src="js/jquery.stellar.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/jquery.animateNumber.min.js"></script>
-		<script src="js/scrollax.min.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-		<script src="js/google-map.js"></script>
-		<script src="js/main.js"></script>
-		
-	</body>
-	</html>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/google-map.js"></script>
+	<script src="js/main.js"></script>
+	
+</body>
+</html>
