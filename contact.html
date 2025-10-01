@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Mostudio - Free Bootstrap 4 Template by Colorlib</title>
+	<title>Cloudence - Software Development Services</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 	<link rel="stylesheet" href="css/animate.css">
 	
@@ -20,378 +22,283 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/tj_style.css">
 
-	
 	<style>
-		/* Custom Color Scheme */
-		:root {
-			--primary-color: #ff6b6b;
-			--secondary-color: #4ecdc4;
-			--gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
-			--gradient-secondary: linear-gradient(45deg, #4ecdc4 0%, #ff6b6b 100%);
-			--text-dark: #2c3e50;
-			--text-light: #ffffff;
-			--shadow-light: 0 5px 20px rgba(255, 107, 107, 0.2);
-			--shadow-medium: 0 10px 30px rgba(78, 205, 196, 0.3);
-		}
-
-		/* Enhanced Animations */
-		@keyframes fadeInUp {
-			from {
-				opacity: 0;
-				transform: translateY(30px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-
-		@keyframes slideInLeft {
-			from {
-				opacity: 0;
-				transform: translateX(-50px);
-			}
-			to {
-				opacity: 1;
-				transform: translateX(0);
-			}
-		}
-
-		@keyframes slideInRight {
-			from {
-				opacity: 0;
-				transform: translateX(50px);
-			}
-			to {
-				opacity: 1;
-				transform: translateX(0);
-			}
-		}
-
-		@keyframes pulse {
-			0% {
-				transform: scale(1);
-			}
-			50% {
-				transform: scale(1.05);
-			}
-			100% {
-				transform: scale(1);
-			}
-		}
-
-		@keyframes gradientShift {
-			0% {
-				background-position: 0% 50%;
-			}
-			50% {
-				background-position: 100% 50%;
-			}
-			100% {
-				background-position: 0% 50%;
-			}
-		}
-
-		/* Enhanced Contact Form */
-		.contact-wrap {
-			animation: slideInRight 0.8s ease-out;
-			background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+		/* Enhanced service cards styling from pricing.html */
+		.service-card {
+			background: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+			backdrop-filter: blur(10px);
+			border: 1px solid rgba(255,255,255,0.1);
 			border-radius: 20px;
-			box-shadow: var(--shadow-light);
-			position: relative;
+			margin: 15px;
 			overflow: hidden;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			position: relative;
+			box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+			padding: 25px; /* Added padding for content */
 		}
-
-		.contact-wrap::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: 4px;
-			background: var(--gradient-primary);
-			background-size: 200% 200%;
-			animation: gradientShift 3s ease infinite;
+		
+		.service-card:hover {
+			transform: translateY(-10px) scale(1.02);
+			box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+			border-color: rgba(255,255,255,0.2);
 		}
-
-		.contact-wrap .heading {
-			background: var(--gradient-primary);
+		
+		.service-content {
+			padding: 25px;
+			position: relative;
+			z-index: 1;
+		}
+		
+		.service-title {
+			font-family: 'Abril Fatface', cursive;
+			font-size: 24px;
+			margin-bottom: 30px; /* Increased margin */
+			color: #fff;
+			text-align: center;
+			position: relative;
+			background: linear-gradient(90deg, #fff 0%, #ff6b6b 50%, #4ecdc4 100%);
+			background-size: 200% auto;
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 			background-clip: text;
-			font-weight: 700;
-			font-size: 2.5rem;
-			margin-bottom: 2rem;
-			animation: fadeInUp 0.6s ease-out 0.2s both;
+			animation: shimmer 3s linear infinite;
 		}
-
-		/* Form Group Labels Enhancement */
-		.form-group .label {
-			color: #2c3e50 !important;
-			font-weight: 600 !important;
-			margin-bottom: 8px !important;
-			display: block !important;
-			font-size: 14px !important;
-			text-transform: uppercase;
-			letter-spacing: 0.5px;
+		
+		.service-title::after {
+			content: '';
+			position: absolute;
+			bottom: -12px; /* Adjusted position */
+			left: 50%;
+			transform: translateX(-50%);
+			width: 40px;
+			height: 2px;
+			background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+			border-radius: 2px;
+			transition: width 0.3s ease;
 		}
-
-		/* Form Control Enhancements */
-		.form-group {
-			margin-bottom: 1.5rem;
-			animation: fadeInUp 0.6s ease-out both;
+		
+		.service-card:hover .service-title::after {
+			width: 60px;
 		}
-
-		.form-group:nth-child(1) { animation-delay: 0.3s; }
-		.form-group:nth-child(2) { animation-delay: 0.4s; }
-		.form-group:nth-child(3) { animation-delay: 0.5s; }
-		.form-group:nth-child(4) { animation-delay: 0.6s; }
-		.form-group:nth-child(5) { animation-delay: 0.7s; }
-
-		.form-control {
-			border: 2px solid #e9ecef !important;
-			border-radius: 12px !important;
-			padding: 15px 20px !important;
-			font-size: 16px !important;
-			transition: all 0.3s ease !important;
-			background: #ffffff !important;
-			color: #2c3e50 !important;
-			width: 100% !important;
-			display: block !important;
-		}
-
-		.form-control:focus {
-			border-color: var(--primary-color) !important;
-			box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.25) !important;
-			transform: translateY(-2px) !important;
-			background: #ffffff !important;
-			color: #2c3e50 !important;
-			outline: none !important;
-		}
-
-		.form-control::placeholder {
-			color: #6c757d !important;
-			opacity: 0.7 !important;
-		}
-
-		.label {
-			font-weight: 600;
-			color: var(--text-dark) !important;
-			margin-bottom: 8px;
-			display: block;
+		
+		.btn-toggle {
+			display: inline-block;
+			padding: 14px 32px;
+			background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+			color: white;
+			text-decoration: none;
+			border: none;
+			border-radius: 30px;
+			font-family: 'Poppins', sans-serif;
+			font-weight: 500;
 			font-size: 14px;
-		}
-
-		/* Enhanced Submit Button */
-		.btn-primary {
-			background: var(--gradient-primary) !important;
-			border: none !important;
-			border-radius: 50px;
-			padding: 15px 40px;
-			font-weight: 600;
-			font-size: 16px;
-			letter-spacing: 0.5px;
-			transition: all 0.3s ease;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 			position: relative;
 			overflow: hidden;
-			color: var(--text-light) !important;
+			text-align: center;
+			width: 100%;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+			margin-top: 20px;
 		}
-
-		.btn-primary::before {
+		
+		.btn-toggle::before {
 			content: '';
 			position: absolute;
 			top: 0;
 			left: -100%;
 			width: 100%;
 			height: 100%;
-			background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-			transition: left 0.5s;
+			background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+			transition: left 0.4s ease;
+			z-index: -1;
+		}
+		
+		.btn-toggle:hover {
+			transform: translateY(-3px) scale(1.05);
+			box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+			color: white;
+			text-decoration: none;
+		}
+		
+		.btn-toggle:hover::before {
+			left: 0;
+		}
+		
+		/* Animations */
+		@keyframes shimmer {
+			0% { background-position: -200% center; }
+			100% { background-position: 200% center; }
 		}
 
-		.btn-primary:hover {
-			transform: translateY(-3px);
-			box-shadow: var(--shadow-medium);
-			background: var(--gradient-secondary) !important;
+		@keyframes floatingCard {
+			0%, 100% { transform: translateY(0px); }
+			50% { transform: translateY(-5px); }
 		}
 
-		.btn-primary:focus {
-			box-shadow: 0 0 0 0.2rem rgba(255, 107, 107, 0.5) !important;
-			background: var(--gradient-primary) !important;
+		.service-card {
+			animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+					   floatingCard 6s ease-in-out infinite;
+			animation-delay: 0.2s, 2s;
 		}
 
-		.btn-primary:hover::before {
-			left: 100%;
+		/* CONTACT PAGE SPECIFIC STYLES */
+		.services-container {
+			min-height: 100vh;
+			padding: 20px 0;
 		}
 
-		/* Enhanced Info Section */
-		.info-wrap {
-			background: var(--gradient-secondary) !important;
-			border-radius: 20px;
-			animation: slideInLeft 0.8s ease-out;
+		.contact-grid {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			gap: 20px;
+			max-width: 1400px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+
+		.info-card {
+			grid-column: 1 / 2;
+		}
+
+		.form-card {
+			grid-column: 2 / 3;
+		}
+
+		.banner-card {
+			grid-column: 1 / -1;
+			margin-top: 20px;
+			text-align: center;
+			padding: 40px 25px; /* Added more padding for emphasis */
+		}
+
+		@media (max-width: 991.98px) {
+			.contact-grid {
+				grid-template-columns: 1fr;
+			}
+			.info-card {
+				grid-column: 1 / -1;
+				grid-row: 2 / 3;
+			}
+			.form-card {
+				grid-column: 1 / -1;
+				grid-row: 1 / 2;
+			}
+		}
+
+		/* Form Styling */
+		.form-group {
+			margin-bottom: 1.5rem;
 			position: relative;
-			overflow: hidden;
 		}
 
-		.info-wrap::before {
-			content: '';
-			position: absolute;
-			top: -50%;
-			right: -50%;
-			width: 100%;
-			height: 100%;
-			background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-			animation: pulse 4s ease-in-out infinite;
+		.label {
+			color: rgba(255, 255, 255, 0.8);
+			font-weight: 500;
+			margin-bottom: .5rem;
+			font-size: 14px;
 		}
 
-		.info-wrap h3 {
-			color: var(--text-light);
-			font-weight: 700;
-			font-size: 2rem;
-			margin-bottom: 1rem;
-			animation: fadeInUp 0.6s ease-out 0.3s both;
+		.form-control {
+			height: 52px !important;
+			background: rgba(255, 255, 255, 0.08) !important;
+			color: #fff !important;
+			font-size: 16px !important;
+			border-radius: 10px !important;
+			box-shadow: none !important;
+			border: 1px solid rgba(255, 255, 255, 0.2) !important;
+			transition: all 0.3s ease !important;
+			padding: 10px 15px !important;
 		}
 
-		.info-wrap p {
-			color: rgba(255, 255, 255, 0.9);
-			animation: fadeInUp 0.6s ease-out 0.4s both;
+		.form-control:focus, .form-control:active {
+			outline: none !important;
+			box-shadow: none !important;
+			border-color: #4ecdc4 !important;
+			background: rgba(0, 0, 0, 0.2) !important;
 		}
 
-		/* Enhanced Contact Info Items */
-		.dbox {
-			animation: fadeInUp 0.6s ease-out both;
+		textarea.form-control {
+			height: auto !important;
+			resize: vertical;
+		}
+
+		.form-control::placeholder {
+			color: rgba(255, 255, 255, 0.5) !important;
+			opacity: 1 !important;
+		}
+
+		/* Info Box Styling */
+		.info-wrap-content p {
+			color: rgba(255, 255, 255, 0.8);
+			text-align: center;
 			margin-bottom: 2rem;
-			transition: transform 0.3s ease;
 		}
-
-		.dbox:nth-child(3) { animation-delay: 0.5s; }
-		.dbox:nth-child(4) { animation-delay: 0.6s; }
-		.dbox:nth-child(5) { animation-delay: 0.7s; }
-		.dbox:nth-child(6) { animation-delay: 0.8s; }
-
+		.dbox {
+			margin-bottom: 25px;
+			width: 100%;
+			display: flex;
+			align-items: flex-start;
+			transition: transform .3s ease;
+		}
 		.dbox:hover {
-			transform: translateX(10px);
+			transform: translateX(5px);
 		}
-
 		.dbox .icon {
-			width: 60px;
-			height: 60px;
-			background: rgba(255, 255, 255, 0.2);
+			width: 50px;
+			height: 50px;
 			border-radius: 50%;
-			backdrop-filter: blur(10px);
-			transition: all 0.3s ease;
+			border: 1px solid rgba(255,255,255,0.2);
+			transition: all .3s ease;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
 		}
-
 		.dbox:hover .icon {
-			background: rgba(255, 255, 255, 0.3);
+			background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+			border-color: transparent;
+		}
+		.dbox .icon span {
+			font-size: 20px;
+			color: #4ecdc4;
+			transition: all .3s ease;
+		}
+		.dbox:hover .icon span {
+			color: #fff;
 			transform: scale(1.1);
 		}
-
-		.dbox .icon span {
-			color: var(--text-light);
-			font-size: 20px;
+		.dbox .text {
+			color: rgba(255,255,255,0.8);
+			padding-left: 15px;
 		}
-
 		.dbox .text p {
-			color: var(--text-light);
 			margin: 0;
+			text-align: left;
 		}
-
 		.dbox .text span {
-			font-weight: 600;
-			display: block;
-			margin-bottom: 5px;
+			font-weight: 500;
+			color: #fff;
 		}
-
 		.dbox .text a {
-			color: rgba(255, 255, 255, 0.9);
+			color: rgba(255,255,255,0.8);
 			text-decoration: none;
-			transition: color 0.3s ease;
+			transition: all .3s ease;
 		}
-
 		.dbox .text a:hover {
-			color: var(--text-light);
+			color: #4ecdc4;
 		}
 
-		/* Enhanced Map Section Replacement */
-		.contact-info-section {
-			animation: fadeInUp 0.8s ease-out 0.9s both;
-			margin-top: 30px;
+		.banner-card h4 {
+			font-family: 'Abril Fatface', cursive;
+			color: #fff;
+			font-size: 2rem;
+			margin-bottom: 1rem;
+		}
+		.banner-card p {
+			color: rgba(255,255,255,0.8);
+			font-size: 1rem;
 		}
 
-		/* Responsive Enhancements */
-		@media (max-width: 768px) {
-			.contact-wrap .heading {
-				font-size: 2rem;
-			}
-			
-			.info-wrap h3 {
-				font-size: 1.5rem;
-			}
-			
-			.dbox:hover {
-				transform: none;
-			}
-		}
-
-		/* Loading Animation Enhancement */
-		#ftco-loader {
-			background: var(--gradient-primary);
-		}
-
-		#ftco-loader .path {
-			stroke: var(--text-light);
-		}
-
-		/* Smooth Scroll */
-		html {
-			scroll-behavior: smooth;
-		}
-
-		/* Enhanced Responsive Design */
-		.container {
-			animation: fadeInUp 0.8s ease-out;
-		}
-
-		/* Enhanced Form Validation */
-		.form-control:valid {
-			border-color: var(--secondary-color) !important;
-		}
-
-		.form-control:invalid {
-			border-color: #e9ecef !important;
-		}
-
-		/* Enhanced Input Focus State */
-		.form-group.focused .label {
-			color: var(--primary-color) !important;
-			transform: translateY(-2px);
-		}
-
-		/* Floating Elements */
-		.floating {
-			animation: float 3s ease-in-out infinite;
-		}
-
-		@keyframes float {
-			0%, 100% {
-				transform: translateY(0px);
-			}
-			50% {
-				transform: translateY(-10px);
-			}
-		}
-
-		/* Additional Form Enhancements */
-		textarea.form-control {
-			resize: vertical !important;
-			min-height: 120px !important;
-		}
-
-		/* Focus ring enhancement */
-		.form-control:focus-visible {
-			outline: 2px solid var(--primary-color) !important;
-			outline-offset: 2px !important;
-		}
 	</style>
 </head>
 <body>
@@ -399,7 +306,6 @@
 	<div id="colorlib-page">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight">
-
 			<h1 id="colorlib-logo" class="mb-4 mb-md-5"><a href="index.html" style="background-color: #4ecdc4;">CodVault</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
@@ -408,177 +314,100 @@
 					<li class="colorlib-active"><a href="contact.html">Contact Us</a></li>
 				</ul>
 			</nav>
-
-			</aside> <!-- END COLORLIB-ASIDE -->
-			<div id="colorlib-main">
-				<section class="ftco-section ftco-no-pt ftco-no-pb">
-					<div class="container px-md-0">
-						<div class="row d-flex no-gutters">
-							<div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
-								<div class="contact-wrap w-100 p-md-5 p-4">
-									<h3 class="mb-4 heading">Get in touch</h3>
-									<form method="POST" id="contactForm" name="contactForm" class="contactForm">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label class="label" for="name">Full Name</label>
-													<input type="text" class="form-control" name="name" id="name" placeholder="Name">
-												</div>
-											</div>
-											<div class="col-md-6"> 
-												<div class="form-group">
-													<label class="label" for="email">Email Address</label>
-													<input type="email" class="form-control" name="email" id="email" placeholder="Email">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="label" for="subject">Subject</label>
-													<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<label class="label" for="#">Message</label>
-													<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
-												</div>
-											</div>
-											<div class="col-md-12">
-												<div class="form-group">
-													<input type="submit" value="Send Message" class="btn btn-primary">
-													<div class="submitting"></div>
-												</div>
-											</div>
-										</div>
-									</form>
+		</aside> <div id="colorlib-main">
+			<section class="services-container">
+				<div class="contact-grid">
+					
+					<div class="service-card info-card">
+						<div class="info-wrap-content">
+							<h3 class="service-title">Let's get in touch</h3>
+							<p>We're open for any suggestion or just to have a chat.</p>
+							<div class="dbox">
+								<div class="icon"><span class="fa fa-map-marker"></span></div>
+								<div class="text pl-3">
+									<p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
 								</div>
 							</div>
-							<div class="col-lg-4 col-md-5 d-flex align-items-stretch">
-								<div class="info-wrap js-fullheight bg-primary w-100 p-md-5 p-4">
-									<h3>Let's get in touch</h3>
-									<p class="mb-4">We're open for any suggestion or just to have a chat</p>
-									<div class="dbox w-100 d-flex align-items-start">
-										<div class="icon d-flex align-items-center justify-content-center floating">
-											<span class="fa fa-map-marker"></span>
-										</div>
-										<div class="text pl-3">
-											<p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-										</div>
-									</div>
-									<div class="dbox w-100 d-flex align-items-center">
-										<div class="icon d-flex align-items-center justify-content-center floating">
-											<span class="fa fa-phone"></span>
-										</div>
-										<div class="text pl-3">
-											<p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
-										</div>
-									</div>
-									<div class="dbox w-100 d-flex align-items-center">
-										<div class="icon d-flex align-items-center justify-content-center floating">
-											<span class="fa fa-paper-plane"></span>
-										</div>
-										<div class="text pl-3">
-											<p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-										</div>
-									</div>
-									<div class="dbox w-100 d-flex align-items-center">
-										<div class="icon d-flex align-items-center justify-content-center floating">
-											<span class="fa fa-globe"></span>
-										</div>
-										<div class="text pl-3">
-											<p><span>Website</span> <a href="#">yoursite.com</a></p>
-										</div>
-									</div>
+							<div class="dbox">
+								<div class="icon"><span class="fa fa-phone"></span></div>
+								<div class="text pl-3">
+									<p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
 								</div>
 							</div>
-						</div>
-						<div class="row d-flex no-gutters">
-							<div class="col-12">
-								<div class="contact-info-section p-4" style="background: var(--gradient-primary); border-radius: 20px; color: white; text-align: center; animation: fadeInUp 1s ease-out;">
-									<h4 style="margin-bottom: 20px; font-weight: 600;">Ready to Start Your Project?</h4>
-									<p style="margin: 0; opacity: 0.9;">We're excited to hear from you and discuss how we can bring your vision to life.</p>
+							<div class="dbox">
+								<div class="icon"><span class="fa fa-paper-plane"></span></div>
+								<div class="text pl-3">
+									<p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+								</div>
+							</div>
+							<div class="dbox">
+								<div class="icon"><span class="fa fa-globe"></span></div>
+								<div class="text pl-3">
+									<p><span>Website</span> <a href="#">yoursite.com</a></p>
 								</div>
 							</div>
 						</div>
 					</div>
-				</section>
-			</div><!-- END COLORLIB-MAIN -->
-		</div><!-- END COLORLIB-PAGE -->
 
-		<!-- loader -->
-		<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+					<div class="service-card form-card">
+						<h3 class="service-title">Get in touch</h3>
+						<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label class="label" for="name">Full Name</label>
+										<input type="text" class="form-control" name="name" id="name" placeholder="Name">
+									</div>
+								</div>
+								<div class="col-md-6"> 
+									<div class="form-group">
+										<label class="label" for="email">Email Address</label>
+										<input type="email" class="form-control" name="email" id="email" placeholder="Email">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="label" for="subject">Subject</label>
+										<input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="label" for="message">Message</label>
+										<textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<button type="submit" class="btn-toggle">Send Message</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div class="service-card banner-card">
+						<h4>Ready to Start Your Project?</h4>
+						<p>We're excited to hear from you and discuss how we can bring your vision to life.</p>
+					</div>
+
+				</div>
+			</section>
+		</div></div><div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery-migrate-3.0.1.min.js"></script>
-		<script src="js/popper.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.easing.1.3.js"></script>
-		<script src="js/jquery.waypoints.min.js"></script>
-		<script src="js/jquery.stellar.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/jquery.animateNumber.min.js"></script>
-		<script src="js/scrollax.min.js"></script>
-
-		<script src="js/main.js"></script>
-
-		<script>
-			// Enhanced form interactions
-			document.addEventListener('DOMContentLoaded', function() {
-				const form = document.getElementById('contactForm');
-				const inputs = form.querySelectorAll('.form-control');
-				
-				inputs.forEach(input => {
-					input.addEventListener('focus', function() {
-						this.parentElement.classList.add('focused');
-					});
-					
-					input.addEventListener('blur', function() {
-						if (this.value === '') {
-							this.parentElement.classList.remove('focused');
-						}
-					});
-				});
-
-				// Form submission animation
-				form.addEventListener('submit', function(e) {
-					e.preventDefault();
-					const submitBtn = form.querySelector('.btn-primary');
-					submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
-					
-					setTimeout(() => {
-						submitBtn.innerHTML = '<i class="fa fa-check"></i> Message Sent!';
-						submitBtn.style.background = 'linear-gradient(135deg, #4ecdc4 0%, #45b7b8 100%)';
-						
-						setTimeout(() => {
-							submitBtn.innerHTML = 'Send Message';
-							submitBtn.style.background = '';
-							form.reset();
-						}, 3000);
-					}, 2000);
-				});
-
-				// Intersection Observer for animations
-				const observerOptions = {
-					threshold: 0.1,
-					rootMargin: '0px 0px -50px 0px'
-				};
-
-				const observer = new IntersectionObserver((entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							entry.target.style.opacity = '1';
-							entry.target.style.transform = 'translateY(0)';
-						}
-					});
-				}, observerOptions);
-
-				document.querySelectorAll('.form-group, .dbox').forEach(el => {
-					observer.observe(el);
-				});
-			});
-		</script>
-		
-	</body>
-	</html>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script src="js/main.js"></script>
+	
+</body>
+</html>
